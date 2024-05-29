@@ -18,6 +18,10 @@ public class Pantalla extends javax.swing.JFrame {
     public Pantalla() {
         initComponents();
     }
+    
+   public String operador ;
+   public  float numero1 ;
+   public  float numero2;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,207 +36,455 @@ public class Pantalla extends javax.swing.JFrame {
         buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        menos = new javax.swing.JButton();
         mult = new javax.swing.JButton();
         div = new javax.swing.JButton();
         mas = new javax.swing.JButton();
-        num1 = new javax.swing.JFormattedTextField();
-        num2 = new javax.swing.JFormattedTextField();
         res = new javax.swing.JFormattedTextField();
+        menos = new javax.swing.JButton();
+        mult1 = new javax.swing.JButton();
+        mult2 = new javax.swing.JButton();
+        mult3 = new javax.swing.JButton();
+        mult4 = new javax.swing.JButton();
+        mult5 = new javax.swing.JButton();
+        mult6 = new javax.swing.JButton();
+        mult7 = new javax.swing.JButton();
+        mult8 = new javax.swing.JButton();
+        mult9 = new javax.swing.JButton();
+        mult10 = new javax.swing.JButton();
+        mult11 = new javax.swing.JButton();
+        mult12 = new javax.swing.JButton();
+        mult13 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jLabel1.setText("Calculadora");
+        jPanel1.setFocusable(false);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Primer Número");
-
-        jLabel3.setText("Segundo Número");
-
-        jLabel4.setText("Resultado");
-
-        menos.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        menos.setText("-");
-        menos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menosActionPerformed(evt);
-            }
-        });
+        jLabel1.setFont(new java.awt.Font("Leelawadee UI Semilight", 1, 40)); // NOI18N
+        jLabel1.setText("CALCULADORA");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
 
         mult.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        mult.setText("*");
+        mult.setText("1");
+        mult.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        mult.setOpaque(true);
+        mult.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                multMouseDragged(evt);
+            }
+        });
         mult.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 multActionPerformed(evt);
             }
         });
+        jPanel1.add(mult, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 55, 55));
 
-        div.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        div.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         div.setText("/");
+        div.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         div.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 divActionPerformed(evt);
             }
         });
+        jPanel1.add(div, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, 55, 55));
 
-        mas.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        mas.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         mas.setText("+");
+        mas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         mas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 masActionPerformed(evt);
             }
         });
+        jPanel1.add(mas, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 120, 55, 55));
 
-        num1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                num1ActionPerformed(evt);
-            }
-        });
-
-        num2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
-        num2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                num2ActionPerformed(evt);
-            }
-        });
-
+        res.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#.###"))));
         res.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resActionPerformed(evt);
             }
         });
+        jPanel1.add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 200, 55));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(div)
-                .addGap(307, 307, 307))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(num1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(28, 28, 28)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(num2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(41, 41, 41)
-                                .addComponent(mas)
-                                .addGap(116, 116, 116)
-                                .addComponent(menos)
-                                .addGap(30, 30, 30)
-                                .addComponent(mult)
-                                .addGap(60, 60, 60))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(90, 90, 90)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(15, 15, 15))
-                            .addComponent(res, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(jLabel1)))
-                .addContainerGap(72, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(36, 36, 36)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(num1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(num2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(div, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mas, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(menos, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mult, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(res, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
-        );
+        menos.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        menos.setText("-");
+        menos.setAlignmentY(0.0F);
+        menos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(menos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 55, 55));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        mult1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        mult1.setText("2");
+        mult1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        mult1.setOpaque(true);
+        mult1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                mult1MouseDragged(evt);
+            }
+        });
+        mult1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mult1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(mult1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 55, 55));
+
+        mult2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        mult2.setText("3");
+        mult2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        mult2.setOpaque(true);
+        mult2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                mult2MouseDragged(evt);
+            }
+        });
+        mult2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mult2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(mult2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 55, 55));
+
+        mult3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        mult3.setText("*");
+        mult3.setAlignmentY(0.0F);
+        mult3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        mult3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mult3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                mult3MouseDragged(evt);
+            }
+        });
+        mult3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mult3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(mult3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 55, 55));
+
+        mult4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        mult4.setText("4");
+        mult4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        mult4.setOpaque(true);
+        mult4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                mult4MouseDragged(evt);
+            }
+        });
+        mult4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mult4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(mult4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 55, 55));
+
+        mult5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        mult5.setText("5");
+        mult5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        mult5.setOpaque(true);
+        mult5.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                mult5MouseDragged(evt);
+            }
+        });
+        mult5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mult5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(mult5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 55, 55));
+
+        mult6.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        mult6.setText("6");
+        mult6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        mult6.setOpaque(true);
+        mult6.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                mult6MouseDragged(evt);
+            }
+        });
+        mult6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mult6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(mult6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 55, 55));
+
+        mult7.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        mult7.setText("7");
+        mult7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        mult7.setOpaque(true);
+        mult7.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                mult7MouseDragged(evt);
+            }
+        });
+        mult7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mult7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(mult7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 55, 55));
+
+        mult8.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        mult8.setText("=");
+        mult8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        mult8.setOpaque(true);
+        mult8.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                mult8MouseDragged(evt);
+            }
+        });
+        mult8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mult8ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(mult8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, 55, 55));
+
+        mult9.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        mult9.setText("8");
+        mult9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        mult9.setOpaque(true);
+        mult9.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                mult9MouseDragged(evt);
+            }
+        });
+        mult9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mult9ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(mult9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 55, 55));
+
+        mult10.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        mult10.setText("0");
+        mult10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        mult10.setOpaque(true);
+        mult10.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                mult10MouseDragged(evt);
+            }
+        });
+        mult10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mult10ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(mult10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 55, 55));
+
+        mult11.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        mult11.setText(".");
+        mult11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        mult11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        mult11.setOpaque(true);
+        mult11.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                mult11MouseDragged(evt);
+            }
+        });
+        mult11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mult11ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(mult11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 55, 55));
+
+        mult12.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        mult12.setText("9");
+        mult12.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        mult12.setOpaque(true);
+        mult12.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                mult12MouseDragged(evt);
+            }
+        });
+        mult12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mult12ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(mult12, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 55, 55));
+
+        mult13.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        mult13.setText("c");
+        mult13.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        mult13.setOpaque(true);
+        mult13.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                mult13MouseDragged(evt);
+            }
+        });
+        mult13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mult13ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(mult13, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 55, 55));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void num2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num2ActionPerformed
+    private void mult11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mult11ActionPerformed
+        this.res.setText(this.res.getText()+".");
+    }//GEN-LAST:event_mult11ActionPerformed
 
-    
-       
-    }//GEN-LAST:event_num2ActionPerformed
-
-    private void num1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num1ActionPerformed
-
-     
-    }//GEN-LAST:event_num1ActionPerformed
-
-    private void masActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masActionPerformed
+    private void mult11MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mult11MouseDragged
         // TODO add your handling code here:
+    }//GEN-LAST:event_mult11MouseDragged
+
+    private void mult10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mult10ActionPerformed
+        this.res.setText(this.res.getText()+"0");
+    }//GEN-LAST:event_mult10ActionPerformed
+
+    private void mult10MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mult10MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mult10MouseDragged
+
+    private void mult9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mult9ActionPerformed
+         this.res.setText(this.res.getText()+"8");
+    }//GEN-LAST:event_mult9ActionPerformed
+
+    private void mult9MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mult9MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mult9MouseDragged
+
+    private void mult8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mult8ActionPerformed
+        this.numero2 = Float.parseFloat(this.res.getText());
         
-        double suma = Double.parseDouble(num1.getText()) + Double.parseDouble(num2.getText());
-        res.setText(Double.toString(suma));
-    }//GEN-LAST:event_masActionPerformed
+        switch(this.operador){
+            
+            case "+" -> this.res.setText(Float.toString(numero1 + numero2));
+            case "-" -> this.res.setText(Float.toString(numero1 - numero2));
+            case "*" -> this.res.setText(Float.toString(numero1 * numero2));
+            case "/" -> this.res.setText(Float.toString(numero1 / numero2));
+        }
+        
+        
+        
+    }//GEN-LAST:event_mult8ActionPerformed
 
-    private void divActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divActionPerformed
+    private void mult8MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mult8MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mult8MouseDragged
 
-       double division = Double.parseDouble(num1.getText()) / Double.parseDouble(num2.getText());
-        res.setText(Double.toString(division));
-    }//GEN-LAST:event_divActionPerformed
+    private void mult7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mult7ActionPerformed
+         this.res.setText(this.res.getText()+"7");
+    }//GEN-LAST:event_mult7ActionPerformed
 
-    private void multActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multActionPerformed
-       double multiplicacion = Double.parseDouble(num1.getText()) * Double.parseDouble(num2.getText());
-       res.setText(Double.toString(multiplicacion));
-    }//GEN-LAST:event_multActionPerformed
+    private void mult7MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mult7MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mult7MouseDragged
+
+    private void mult6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mult6ActionPerformed
+         this.res.setText(this.res.getText()+"6");
+    }//GEN-LAST:event_mult6ActionPerformed
+
+    private void mult6MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mult6MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mult6MouseDragged
+
+    private void mult5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mult5ActionPerformed
+         this.res.setText(this.res.getText()+"5");
+    }//GEN-LAST:event_mult5ActionPerformed
+
+    private void mult5MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mult5MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mult5MouseDragged
+
+    private void mult4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mult4ActionPerformed
+        this.res.setText(this.res.getText()+"4");
+    }//GEN-LAST:event_mult4ActionPerformed
+
+    private void mult4MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mult4MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mult4MouseDragged
+
+    private void mult3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mult3ActionPerformed
+        this.numero1 = Float.parseFloat(this.res.getText());
+         this.operador = "*";
+         this.res.setText("");
+    }//GEN-LAST:event_mult3ActionPerformed
+
+    private void mult3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mult3MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mult3MouseDragged
+
+    private void mult2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mult2ActionPerformed
+         this.res.setText(this.res.getText()+"3");
+    }//GEN-LAST:event_mult2ActionPerformed
+
+    private void mult2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mult2MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mult2MouseDragged
+
+    private void mult1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mult1ActionPerformed
+         this.res.setText(this.res.getText()+"2");
+    }//GEN-LAST:event_mult1ActionPerformed
+
+    private void mult1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mult1MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mult1MouseDragged
 
     private void menosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menosActionPerformed
-       double resta = Double.parseDouble(num1.getText()) - Double.parseDouble(num2.getText());
-       res.setText(Double.toString(resta));
+        this.numero1 = Float.parseFloat(this.res.getText());
+         this.operador = "-";
+         this.res.setText("");
     }//GEN-LAST:event_menosActionPerformed
 
     private void resActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resActionPerformed
         // TODO add your handling code here:
-        
-        
+
     }//GEN-LAST:event_resActionPerformed
+
+    private void masActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masActionPerformed
+         this.numero1 = Float.parseFloat(this.res.getText());
+         this.operador = "+";
+         this.res.setText("");
+
+       
+    }//GEN-LAST:event_masActionPerformed
+
+    private void divActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divActionPerformed
+
+        this.numero1 = Float.parseFloat(this.res.getText());
+         this.operador = "/";
+         this.res.setText("");
+    }//GEN-LAST:event_divActionPerformed
+
+    private void multActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multActionPerformed
+        
+        this.res.setText(this.res.getText()+"1");
+    }//GEN-LAST:event_multActionPerformed
+
+    private void multMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_multMouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_multMouseDragged
+
+    private void mult12MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mult12MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mult12MouseDragged
+
+    private void mult12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mult12ActionPerformed
+        this.res.setText(this.res.getText()+"9");
+    }//GEN-LAST:event_mult12ActionPerformed
+
+    private void mult13MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mult13MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mult13MouseDragged
+
+    private void mult13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mult13ActionPerformed
+        this.res.setText("");
+    }//GEN-LAST:event_mult13ActionPerformed
 
    
 
@@ -241,15 +493,23 @@ public class Pantalla extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton div;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton mas;
     private javax.swing.JButton menos;
     private javax.swing.JButton mult;
-    private javax.swing.JFormattedTextField num1;
-    private javax.swing.JFormattedTextField num2;
+    private javax.swing.JButton mult1;
+    private javax.swing.JButton mult10;
+    private javax.swing.JButton mult11;
+    private javax.swing.JButton mult12;
+    private javax.swing.JButton mult13;
+    private javax.swing.JButton mult2;
+    private javax.swing.JButton mult3;
+    private javax.swing.JButton mult4;
+    private javax.swing.JButton mult5;
+    private javax.swing.JButton mult6;
+    private javax.swing.JButton mult7;
+    private javax.swing.JButton mult8;
+    private javax.swing.JButton mult9;
     private javax.swing.JFormattedTextField res;
     // End of variables declaration//GEN-END:variables
 }
