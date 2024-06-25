@@ -17,7 +17,7 @@ public class conexion {
     Connection conexionbd = null;
     
     String user = "root";
-    String password = "32322040";
+    String password = "root";
     String bd = "agenda";
     String host = "localhost";
     String port = "3306";
@@ -30,8 +30,7 @@ public class conexion {
         try{
             
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conexionbd = DriverManager.getConnection(cadena,user,password);
-           /* JOptionPane.showMessageDialog(null,"Conexión a la base de datos existosa");*/
+            conexionbd = DriverManager.getConnection(cadena,user,password);
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Conexión a la base de datos fallida" + e.toString());
